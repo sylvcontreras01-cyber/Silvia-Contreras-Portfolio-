@@ -1819,6 +1819,17 @@ body.light-mode .btn-ghost:hover {
   color: var(--white);
   border-color: transparent;
 }
+/* Hero "Ver proyectos" — transparente en light mode igual que en dark */
+body.light-mode .hero .btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-2);
+}
+body.light-mode .hero .btn-ghost:hover {
+  background: rgba(81,0,135,.08);
+  border-color: rgba(81,0,135,.3);
+  color: var(--purple);
+}
 body.light-mode .nav-links .btn.btn-primary {
   background: var(--purple);
   color: var(--white);
