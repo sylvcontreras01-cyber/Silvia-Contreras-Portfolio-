@@ -171,11 +171,12 @@
 (function () {
   const container = document.getElementById('heroParticles');
   if (!container) return;
-  const count = 45;
+  const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+  const count = isMobile ? 12 : 45;
   for (let i = 0; i < count; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
-    const size  = Math.random() * 7 + 2;
+    const size  = Math.random() * (isMobile ? 4 : 7) + 2;
     const isPurple = Math.random() > 0.45;
     const dx  = (Math.random() - 0.5) * 80;
     const dy  = -(Math.random() * 80 + 30);
@@ -192,7 +193,9 @@
       `--dy:${dy.toFixed(0)}px`,
       `--dx2:${dx2.toFixed(0)}px`,
       `--dy2:${dy2.toFixed(0)}px`,
-      isPurple ? 'background:rgba(81,0,135,.6)' : 'background:rgba(101,6,1,.55)',
+      isPurple
+        ? `background:rgba(81,0,135,${isMobile ? '.25' : '.6'})`
+        : `background:rgba(101,6,1,${isMobile ? '.2' : '.55'})`,
     ].join(';');
     container.appendChild(p);
   }
@@ -202,9 +205,20 @@
 (function () {
   const canvas = document.getElementById('constellation');
   if (!canvas) return;
+
+  /* Desactivar completamente en mobile — demasiado costoso */
+  if (window.matchMedia('(max-width: 1023px)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   const ctx = canvas.getContext('2d');
   let W, H, pts = [], mx = -9999, my = -9999;
-  const N = 80, LINK = 135;
+
+  /* Tablet: menos puntos, sin líneas al cursor */
+  const isTablet = window.matchMedia('(max-width: 1280px)').matches;
+  const N    = isTablet ? 35 : 80;
+  const LINK = isTablet ? 100 : 135;
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -218,8 +232,8 @@
       pts.push({
         x:  Math.random() * W,
         y:  Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
+        vx: (Math.random() - 0.5) * (isTablet ? 0.12 : 0.22),
+        vy: (Math.random() - 0.5) * (isTablet ? 0.12 : 0.22),
         r:  Math.random() * 1.8 + 0.5,
       });
     }
@@ -243,16 +257,19 @@
           ctx.stroke();
         }
       }
-      const cdx = a.x - mx, cdy = a.y - my;
-      const cd2 = cdx * cdx + cdy * cdy;
-      if (cd2 < 200 * 200) {
-        const cd = Math.sqrt(cd2);
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(mx, my);
-        ctx.strokeStyle = `rgba(81,0,135,${(1 - cd / 200) * 0.45})`;
-        ctx.lineWidth = 0.7;
-        ctx.stroke();
+      /* Líneas al cursor solo en desktop */
+      if (!isTablet) {
+        const cdx = a.x - mx, cdy = a.y - my;
+        const cd2 = cdx * cdx + cdy * cdy;
+        if (cd2 < 200 * 200) {
+          const cd = Math.sqrt(cd2);
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(mx, my);
+          ctx.strokeStyle = `rgba(81,0,135,${(1 - cd / 200) * 0.45})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
       }
       ctx.beginPath();
       ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
@@ -267,7 +284,7 @@
   }
 
   window.addEventListener('resize', init);
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
   init();
   draw();
 })();
