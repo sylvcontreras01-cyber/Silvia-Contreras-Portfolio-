@@ -1096,6 +1096,16 @@ body.menu-open { overflow: hidden; }
 .menu-overlay.active .menu-overlay-nav a:nth-child(4) { transition-delay: .32s; }
 .menu-overlay.active .menu-overlay-nav a:nth-child(5) { transition-delay: .40s; }
 
+/* Toggle dentro del overlay */
+.menu-overlay-nav .theme-toggle {
+  margin-top: 1.8rem;
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .4s ease .48s, transform .4s ease .48s, background .25s, transform .2s;
+}
+.menu-overlay.active .menu-overlay-nav .theme-toggle {
+  opacity: 1; transform: translateY(0);
+}
+
 .menu-overlay-nav a:hover {
   color: var(--red);
   text-shadow: 0 0 24px rgba(193,18,31,.55);
