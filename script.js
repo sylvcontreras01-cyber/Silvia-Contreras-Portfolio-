@@ -16,7 +16,7 @@
     btns.forEach(b => b.textContent = isLight ? '🌙' : '☀️');
   }
 
-  apply(localStorage.getItem('theme') === 'light');
+  apply(false);
 
   btns.forEach(btn => btn.addEventListener('click', () => {
     const isLight = !body.classList.contains(LIGHT);
