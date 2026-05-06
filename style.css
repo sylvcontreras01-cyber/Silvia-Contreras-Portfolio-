@@ -1133,7 +1133,7 @@ body.menu-open { overflow: hidden; }
   .hero-text         { order: 2; }
   .hero-visual       { order: 1; }
   .hero-tagline, .hero-eyebrow { max-width: 100%; }
-  .hero-actions, .hero-proof   { justify-content: center; }
+  .hero-actions, .hero-proof, .hero-role-typed { justify-content: center; }
   .hero-photo-wrap   { max-width: 280px; }
   .about-inner       { grid-template-columns: 1fr; gap: 3rem; }
   .about-photo-side  { order: -1; max-width: 360px; margin: 0 auto; }
