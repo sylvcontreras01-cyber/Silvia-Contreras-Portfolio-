@@ -2,6 +2,26 @@
    SILVIA CONTRERAS · PORTFOLIO — Interactions & Animations
    ============================================================ */
 
+/* ── Theme toggle ───────────────────────────────────────────── */
+(function () {
+  const btn  = document.getElementById('themeToggle');
+  const body = document.body;
+  const LIGHT = 'light-mode';
+
+  function apply(isLight) {
+    body.classList.toggle(LIGHT, isLight);
+    if (btn) btn.textContent = isLight ? '🌙' : '☀️';
+  }
+
+  apply(localStorage.getItem('theme') === 'light');
+
+  if (btn) btn.addEventListener('click', () => {
+    const isLight = !body.classList.contains(LIGHT);
+    apply(isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+})();
+
 /* ── Navbar scroll ──────────────────────────────────────────── */
 (function () {
   const navbar = document.getElementById('navbar');
