@@ -1096,12 +1096,26 @@ body.menu-open { overflow: hidden; }
 .menu-overlay.active .menu-overlay-nav a:nth-child(4) { transition-delay: .32s; }
 .menu-overlay.active .menu-overlay-nav a:nth-child(5) { transition-delay: .40s; }
 
-/* Toggle dentro del overlay — solo visible en mobile/tablet */
+/* Toggle en navbar — SOLO desktop */
+.theme-toggle-nav {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .theme-toggle-nav { display: flex; }
+}
+
+/* Toggle dentro del overlay — SOLO mobile/tablet */
 .menu-overlay-nav .theme-toggle {
-  margin-top: 1.8rem;
+  display: none;
+  margin-top: 2rem;
   opacity: 0; transform: translateY(22px);
   transition: opacity .4s ease .48s, transform .4s ease .48s, background .25s;
-  display: none;
+  padding: 10px 24px; border-radius: 999px; font-size: .9rem;
+  width: auto;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  letter-spacing: .04em;
 }
 @media (max-width: 1023px) {
   .menu-overlay-nav .theme-toggle { display: flex; }
@@ -1109,15 +1123,9 @@ body.menu-open { overflow: hidden; }
 .menu-overlay.active .menu-overlay-nav .theme-toggle {
   opacity: 1; transform: translateY(0);
 }
-
-/* Toggle en navbar — solo visible en desktop, se oculta al abrir hamburguesa */
-.theme-toggle-nav { display: flex; transition: opacity .25s ease, visibility .25s; }
-@media (max-width: 1023px) {
-  .theme-toggle-nav { display: none; }
-}
-.menu-overlay.active ~ * .theme-toggle-nav,
-body.menu-open .theme-toggle-nav {
-  opacity: 0; visibility: hidden; pointer-events: none;
+body.light-mode .menu-overlay-nav .theme-toggle {
+  border-color: rgba(0,0,0,.12);
+  background: rgba(0,0,0,.05);
 }
 
 .menu-overlay-nav a:hover {
