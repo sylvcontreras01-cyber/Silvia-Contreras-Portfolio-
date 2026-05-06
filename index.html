@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silvia Contreras · Estratega de Contenidos</title>
+  <meta name="description"
+    content="Silvia Contreras — Estratega de Contenidos Multilingüe. Diseño narrativas y activos digitales que se recuerdan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logopagina.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logopagina.png" />
+  <link rel="shortcut icon" href="assets/logopagina.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Constellation canvas (whole-page background) -->
+  <canvas id="constellation"></canvas>
+
+  <!-- Progress bar + cursor glow -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <a href="#inicio" class="nav-logo-link" aria-label="Ir al inicio">
+        <img src="Higticket fotos/logoSilvia.png" alt="Silvia Contreras" class="nav-logo-img" />
+      </a>
+      <span class="available-dot">Disponible</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre-mi">Sobre Mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#metodologia">Proceso</a></li>
+      <li><a href="https://wa.me/573193383155" target="_blank" class="btn btn-primary">¡Hablemos!</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── MENU OVERLAY ─────────────────────────────────────── -->
+  <div class="menu-overlay" id="menuOverlay">
+    <button class="menu-overlay-close" id="menuClose" aria-label="Cerrar menú">✕</button>
+    <nav class="menu-overlay-nav">
+      <a href="#sobre-mi">Sobre Mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#metodologia">Proceso</a>
+      <a href="https://wa.me/573193383155" target="_blank" class="menu-overlay-cta">¡Hablemos!</a>
+    </nav>
+  </div>
+
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="hero" id="inicio">
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <div class="hero-inner">
+      <!-- Left: text -->
+      <div class="hero-text">
+        <span class="hero-eyebrow">✦ Estratega de Contenidos Multilingüe</span>
+
+        <h1 class="hero-name">
+          Silvia<br><span class="last">Contreras</span>
+        </h1>
+
+        <div class="hero-role-typed">
+          <span id="heroTypedRole"></span><span class="typed-cursor-blink">|</span>
+        </div>
+
+        <p class="hero-tagline">
+          Desarrollo estrategias de contenido para marcas que quieren fortalecer su posicionamiento, conectar con su
+          audiencia y crecer.
+        </p>
+
+        <div class="hero-proof">
+          <span class="proof-stars">★★★★★</span>
+          <span class="proof-divider"></span>
+          <span class="proof-text">4.9/5 · Confiado por 5+ empresas</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/573193383155" target="_blank" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            ¡Hablemos!
+          </a>
+          <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+        </div>
+      </div>
+
+      <!-- Right: photo -->
+      <div class="hero-visual">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-glow"></div>
+          <div class="hero-photo-border"></div>
+          <div class="hero-photo-frame">
+            <img src="assets/TU_FOTO_AQUI.jpg.png" alt="Silvia Contreras"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="hero-photo-placeholder" style="display:none;">👩‍💻</div>
+          </div>
+          <div class="rating-badge">
+            <span class="rb-stars">★★★★★</span>
+            <span class="rb-score">4.9</span>
+            <span class="rb-label">Trusted by clients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 10l5 5 5-5" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ──────────────────────────────────────────── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">Estrategia Digital</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Social Media</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Copywriting</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Paid Media</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">AI Consulting</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Branding</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Content Strategy</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Landing Pages</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Estrategia Digital</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Social Media</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Copywriting</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Paid Media</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">AI Consulting</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Branding</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Content Strategy</span>
+      <span class="marquee-item accent-item">✦</span>
+      <span class="marquee-item">Landing Pages</span>
+      <span class="marquee-item accent-item">✦</span>
+    </div>
+  </div>
+
+  <!-- ── SOBRE MÍ ──────────────────────────────────────────── -->
+  <section class="about" id="sobre-mi">
+    <div class="about-inner">
+      <!-- Photo column -->
+      <div class="about-photo-side reveal reveal-left">
+        <div class="about-deco-border"></div>
+        <div class="about-photo-frame">
+          <img src="assets/MI_NUEVA_IMAGEN.jpg" alt="Silvia Contreras"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="about-photo-placeholder" style="display:none;">✨</div>
+        </div>
+        <div class="about-deco-circle"></div>
+        <div class="about-quote">Lo diseño para ser recordado, para dejar huella</div>
+      </div>
+
+      <!-- Text column -->
+      <div class="about-content">
+        <p class="section-eyebrow reveal d1">Sobre Mí</p>
+        <h2 class="section-title reveal d2">Contenido que <span class="accent">conecta</span></h2>
+
+        <p class="about-text reveal d3">
+          Soy una profesional apasionada por el <strong>marketing estratégico</strong> con formación en Lenguas Modernas
+          y Comunicación Digital. Hablo <strong>cuatro idiomas</strong> y esa capacidad multilingüe es el núcleo de mi
+          enfoque — combino la precisión del lenguaje con la analítica del marketing para transformar la presencia
+          digital de organizaciones con propósito.
+        </p>
+        <p class="about-text reveal d4">
+          Lideré la estrategia digital del festival <strong>#DareToBe de Sheknoows</strong> en colaboración con
+          <strong>Google Women Techmakers</strong>, reposicioné la identidad digital de la <strong>Fundación Entre Soles
+            y Lunas</strong> y, en el sector B2B, perfeccioné mi capacidad para crear contenido persuasivo que convierte
+          en la agencia <strong>High Ticket Converting</strong>.
+        </p>
+
+        <div class="about-highlights reveal d4">
+          <span class="highlight-chip">Google Women Techmakers</span>
+          <span class="highlight-chip">4 Idiomas</span>
+          <span class="highlight-chip">Lenguas Modernas</span>
+          <span class="highlight-chip">Rebranding estratégico</span>
+          <span class="highlight-chip">Contenido que convierte</span>
+        </div>
+
+        <div class="about-stats reveal d5">
+          <div class="stat-item">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-lbl">Años de experiencia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="5">0</span>
+            <span class="stat-lbl">Clientes satisfechos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="4">0</span>
+            <span class="stat-lbl">Idiomas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLIENTES ─────────────────────────────────────────── -->
+  <div class="clients-section" id="clientsSection">
+    <div class="clients-hd">
+      <p class="clients-heading reveal">Marcas y organizaciones con las que he colaborado</p>
+    </div>
+    <div class="clients-rail-wrap">
+      <div class="clients-rail" id="clientsRail">
+        <!-- Set A -->
+        <div class="client-item"><img src="assets/GLOBAL COM.png" alt="Global Com" /></div>
+        <div class="client-item"><img src="assets/highticket.avif" alt="High Ticket" /></div>
+        <div class="client-item"><img src="assets/Logo-Fundacion.webp" alt="Fundación Entre Soles y Lunas" /></div>
+        <div class="client-item"><img src="assets/sheknoows.png" alt="Sheknoows" /></div>
+        <div class="client-item"><img src="assets/google.png" alt="Google Women Techmakers" /></div>
+        <!-- Set B -->
+        <div class="client-item" aria-hidden="true"><img src="assets/GLOBAL COM.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/highticket.avif" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/Logo-Fundacion.webp" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/sheknoows.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/google.png" alt="" /></div>
+        <!-- Set C -->
+        <div class="client-item" aria-hidden="true"><img src="assets/GLOBAL COM.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/highticket.avif" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/Logo-Fundacion.webp" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/sheknoows.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/google.png" alt="" /></div>
+        <!-- Set D -->
+        <div class="client-item" aria-hidden="true"><img src="assets/GLOBAL COM.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/highticket.avif" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/Logo-Fundacion.webp" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/sheknoows.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/google.png" alt="" /></div>
+        <!-- Set E -->
+        <div class="client-item" aria-hidden="true"><img src="assets/GLOBAL COM.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/highticket.avif" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/Logo-Fundacion.webp" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/sheknoows.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/google.png" alt="" /></div>
+        <!-- Set F -->
+        <div class="client-item" aria-hidden="true"><img src="assets/GLOBAL COM.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/highticket.avif" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/Logo-Fundacion.webp" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/sheknoows.png" alt="" /></div>
+        <div class="client-item" aria-hidden="true"><img src="assets/google.png" alt="" /></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROYECTOS ─────────────────────────────────────────── -->
+  <section class="projects" id="proyectos">
+    <div class="projects-inner">
+      <div class="projects-header">
+        <p class="section-eyebrow reveal">Portafolio</p>
+        <h2 class="section-title reveal d1">Proyectos <span class="accent">destacados</span></h2>
+        <p class="section-sub reveal d2">Casos reales de estrategia, diseño y contenido con impacto medible.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Card 1 -->
+        <div class="project-card reveal reveal-scale d1">
+          <div class="pc-bg pc-bg-1">
+            <img class="pc-img" src="Projects/ESL/PortadaESL.jpg" alt="Fundación Entre Soles y Lunas" />
+          </div>
+          <div class="pc-overlay">
+            <div class="pc-info">
+              <p class="pc-category">Brand Identity · Project Management</p>
+              <h3 class="pc-title">Fundación Entre Soles y Lunas</h3>
+              <p class="pc-desc">Estrategia integral de contenido y gestión de marca para fundación social. Carruseles
+                educativos, campañas temáticas y producción visual para @_entresolesylunas.</p>
+              <div class="pc-tags">
+                <span class="pc-tag">Branding</span>
+                <span class="pc-tag">Social Media</span>
+                <span class="pc-tag">Canva Pro</span>
+                <span class="pc-tag">Estrategia</span>
+              </div>
+              <span class="pc-link">Ver proyecto →</span>
+            </div>
+          </div>
+          <div class="pc-label">
+            <div class="pc-label-title">Fundación Entre Soles y Lunas</div>
+            <div class="pc-label-year">2025</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card reveal reveal-scale d2">
+          <div class="pc-bg pc-bg-2">
+            <img class="pc-img" src="Sheknoows/sheknoows portada.png" alt="Sheknoows" />
+          </div>
+          <div class="pc-overlay">
+            <div class="pc-info">
+              <p class="pc-category">Estrategia Digital · Comunidad · Eventos</p>
+              <h3 class="pc-title">Sheknoows</h3>
+              <p class="pc-desc">Reactivación digital y reposicionamiento de marca para comunidad femenina. Estrategia
+                transmedia en 3 meses: +40 oradores, +11 países y festival con +200 espectadores.</p>
+              <div class="pc-tags">
+                <span class="pc-tag">Estrategia Digital</span>
+                <span class="pc-tag">Comunidad</span>
+                <span class="pc-tag">Email Marketing</span>
+                <span class="pc-tag">Eventos</span>
+              </div>
+              <span class="pc-link">Ver proyecto →</span>
+            </div>
+          </div>
+          <div class="pc-label">
+            <div class="pc-label-title">Sheknoows</div>
+            <div class="pc-label-year">2023</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card reveal reveal-scale d3">
+          <div class="pc-bg pc-bg-3">
+            <img class="pc-img" src="Sheknoows/HIGH PORTADA.png" alt="High Ticket Converting" />
+          </div>
+          <div class="pc-overlay">
+            <div class="pc-info">
+              <p class="pc-category">B2B Marketing · LinkedIn Strategy</p>
+              <h3 class="pc-title">High Ticket Converting</h3>
+              <p class="pc-desc">Gestión integral de contenido B2B en LinkedIn con IA, Social Selling y Outbound
+                sincronizados. Thought Leadership para 24+ empresas activas con foco en Lead Scoring y tasa de cierre.
+              </p>
+              <div class="pc-tags">
+                <span class="pc-tag">B2B Strategy</span>
+                <span class="pc-tag">LinkedIn</span>
+                <span class="pc-tag">Copywriting</span>
+                <span class="pc-tag">IA aplicada</span>
+              </div>
+              <span class="pc-link">Ver proyecto →</span>
+            </div>
+          </div>
+          <div class="pc-label">
+            <div class="pc-label-title">High Ticket Converting</div>
+            <div class="pc-label-year">2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICIOS ──────────────────────────────────────────── -->
+  <section class="services" id="servicios">
+    <div class="services-inner">
+      <div class="services-header">
+        <p class="section-eyebrow reveal">Lo que hago</p>
+        <h2 class="section-title reveal d1">Mis <span class="accent">servicios</span></h2>
+        <p class="section-sub reveal d2">Soluciones estratégicas para marcas que quieren crecer con propósito.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- AI Consulting -->
+        <div class="service-card reveal reveal-scale d1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <h3 class="service-name">AI Consulting</h3>
+          <p class="service-desc">Implementación de inteligencia artificial en estrategias digitales. Automatización de
+            flujos de contenido y optimización de procesos creativos con herramientas de IA.</p>
+        </div>
+
+        <!-- Paid Media -->
+        <div class="service-card reveal reveal-scale d2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+          <h3 class="service-name">Paid Media</h3>
+          <p class="service-desc">Gestión de campañas en Google Ads, Meta Ads y TikTok Ads. Estrategia de inversión,
+            segmentación avanzada y optimización continua para maximizar el ROI.</p>
+        </div>
+
+        <!-- Social Media Strategy -->
+        <div class="service-card reveal reveal-scale d3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </div>
+          <h3 class="service-name">Social Media Strategy</h3>
+          <p class="service-desc">Creación de ecosistemas de crecimiento orgánico. Calendarios editoriales, producción
+            de contenido multiformat y gestión de comunidades en LinkedIn, Instagram y TikTok.</p>
+        </div>
+
+        <!-- Copywriting -->
+        <div class="service-card reveal reveal-scale d4">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </div>
+          <h3 class="service-name">Copywriting</h3>
+          <p class="service-desc">Mensajería persuasiva alineada con la voz de tu marca. Copy para landing pages,
+            campañas de email, anuncios y contenido editorial en español, inglés y portugués.</p>
+        </div>
+
+        <!-- Landing Pages -->
+        <div class="service-card reveal reveal-scale d5">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="9" y1="21" x2="9" y2="9" />
+            </svg>
+          </div>
+          <h3 class="service-name">Creación de Landing Pages</h3>
+          <p class="service-desc">Diseño y desarrollo de páginas de aterrizaje orientadas a conversión. Estructura
+            persuasiva, copy estratégico y experiencia de usuario optimizada para captar leads y cerrar ventas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── METODOLOGÍA ───────────────────────────────────────── -->
+  <section class="methodology" id="metodologia">
+    <div class="methodology-inner">
+      <div class="method-header">
+        <p class="section-eyebrow reveal" style="justify-content:center;">Mi proceso</p>
+        <h2 class="section-title reveal d1" style="display:block;text-align:center;">Cómo <span
+            class="accent">trabajo</span></h2>
+        <p class="section-sub reveal d2">Un proceso claro y colaborativo que garantiza resultados consistentes en cada
+          proyecto.</p>
+      </div>
+
+      <div class="method-steps" id="methodSteps">
+        <div class="method-line-fill" id="methodLine"></div>
+
+        <div class="method-step reveal d1">
+          <div class="method-num">01</div>
+          <div>
+            <h4 class="method-title">Diagnóstico</h4>
+            <p class="method-desc">Analizamos tu marca, audiencia y competencia para definir el punto de partida.</p>
+          </div>
+        </div>
+
+        <div class="method-step reveal d2">
+          <div class="method-num">02</div>
+          <div>
+            <h4 class="method-title">Planificación</h4>
+            <p class="method-desc">Diseñamos una hoja de ruta personalizada con objetivos claros y medibles.</p>
+          </div>
+        </div>
+
+        <div class="method-step reveal d3">
+          <div class="method-num">03</div>
+          <div>
+            <h4 class="method-title">Ejecución</h4>
+            <p class="method-desc">Producimos y publicamos el contenido con precisión creativa y estratégica.</p>
+          </div>
+        </div>
+
+        <div class="method-step reveal d4">
+          <div class="method-num">04</div>
+          <div>
+            <h4 class="method-title">Análisis</h4>
+            <p class="method-desc">Medimos resultados, interpretamos datos y optimizamos en tiempo real.</p>
+          </div>
+        </div>
+
+        <div class="method-step reveal d5">
+          <div class="method-num">05</div>
+          <div>
+            <h4 class="method-title">Evolución</h4>
+            <p class="method-desc">Iteramos, escalamos y evolucionamos la estrategia según los resultados obtenidos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIOS ──────────────────────────────────────── -->
+  <section class="testimonials" id="testimonios">
+    <div class="testi-inner">
+
+      <div class="testi-header reveal">
+        <span class="section-eyebrow">Testimonios</span>
+        <h2 class="section-title">Lo que dicen <span class="accent">mis clientes</span></h2>
+        <p class="section-sub">Resultados reales de personas que confiaron en la estrategia.</p>
+      </div>
+
+      <div class="testi-slider-outer reveal d1" id="testiSlider">
+
+        <!-- Flecha anterior -->
+        <button class="testi-arrow testi-arrow-prev" id="testiPrev" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <!-- Track -->
+        <div class="testi-track" id="testiTrack">
+
+          <div class="testi-slide">
+            <span class="testi-quote-mark">"</span>
+            <p class="testi-text">Gracias a ustedes por tener estos espacios tan creativos y expansivos 😍😍😍😍😍</p>
+            <div class="testi-author">
+              <img class="testi-avatar testi-avatar-img" src="testimonios/nata.jpg" alt="Natalia Rubio">
+              <div>
+                <span class="testi-name">Natalia Rubio</span>
+                <span class="testi-role">Fundadora · Hippie Business</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-slide">
+            <span class="testi-quote-mark">"</span>
+            <p class="testi-text">Fue un honor y un gozo tremendo co-crear espacios para que cada vez vivamos todos con
+              más libertad, gracias a todas ustedes. Y vamos por más, vamos a seguir adelante activando el poder que
+              tenemos, atreviéndonos a Ser y Vivir lo que esta en nuestro corazón, cocreando libertad para nosotras y
+              muchos más. Un abrazo grandote.</p>
+            <div class="testi-author">
+              <img class="testi-avatar testi-avatar-img" src="testimonios/caro.jpg" alt="Caro Bermudez">
+              <div>
+                <span class="testi-name">Caro Bermudez</span>
+                <span class="testi-role">Coach</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-slide">
+            <span class="testi-quote-mark">"</span>
+            <p class="testi-text">❤️ hermosooooo. Gracias mil por esa magia.</p>
+            <div class="testi-author">
+              <img class="testi-avatar testi-avatar-img" src="testimonios/ava.jpg" alt="Ava Martinez">
+              <div>
+                <span class="testi-name">Ava Martinez</span>
+                <span class="testi-role">Fundadora · Search Media</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-slide">
+            <span class="testi-quote-mark">"</span>
+            <p class="testi-text">During our time together, Silvia displayed great talents in writing, creativity,
+              understanding the audience, research skills, SEO knowledge, adaptability, emotional intelligence, and
+              marketing knowledge.</p>
+            <div class="testi-author">
+              <img class="testi-avatar testi-avatar-img" src="testimonios/ana.png" alt="Ana Echeverrit">
+              <div>
+                <span class="testi-name">Ana Echeverrit</span>
+                <span class="testi-role">Fundadora · Sheknoows</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+        </div><!-- /testi-track -->
+
+        <!-- Flecha siguiente -->
+        <button class="testi-arrow testi-arrow-next" id="testiNext" aria-label="Siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+
+      </div><!-- /testi-slider-outer -->
+
+      <!-- Dots -->
+      <div class="testi-dots" id="testiDots">
+        <button class="testi-dot" aria-label="Testimonio 1"></button>
+        <button class="testi-dot" aria-label="Testimonio 2"></button>
+        <button class="testi-dot" aria-label="Testimonio 3"></button>
+        <button class="testi-dot" aria-label="Testimonio 4"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ─────────────────────────────────────────── -->
+  <section class="cta-section" id="contacto">
+    <div class="cta-inner reveal reveal-scale">
+      <div class="cta-glass">
+        <span class="cta-eyebrow">✦ Trabajo con marcas que inspiran</span>
+        <h2 class="cta-headline">¿Quieres trabajar <span class="accent">conmigo</span>?</h2>
+        <p class="cta-body">
+          Contáctame — estoy disponible para nuevos proyectos.
+        </p>
+        <a href="https://wa.me/573193383155?text=Hola%20Silvia%2C%20quiero%20trabajar%20contigo" target="_blank"
+          class="btn-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Escribirme por WhatsApp
+        </a>
+        <p class="cta-note">+57 319 338 3155 · sylv.contreras01@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+
+      <a href="#inicio" class="footer-logo-link" aria-label="Ir al inicio">
+        <img src="assets/logo.png" alt="Silvia Contreras" class="footer-logo-img" />
+      </a>
+
+      <span class="footer-tagline">Estratega de Contenidos · Colombia</span>
+
+      <nav class="footer-links">
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#metodologia">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer-socials">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/silvia-juliana-contreras" target="_blank" class="soc" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com" target="_blank" class="soc" aria-label="TikTok">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">© 2025 Silvia Contreras · Todos los derechos reservados · Colombia</p>
+    </div>
+  </footer>
+
+  <!-- ── WhatsApp flotante ──────────────────────────────────── -->
+  <a href="https://wa.me/573193383155" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ── PROJECT MODAL ────────────────────────────────────── -->
+  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" id="modalPanel">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      <div class="modal-scroll" id="modalScroll"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
