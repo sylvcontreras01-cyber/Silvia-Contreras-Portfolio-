@@ -1110,10 +1110,14 @@ body.menu-open { overflow: hidden; }
   opacity: 1; transform: translateY(0);
 }
 
-/* Toggle en navbar — solo visible en desktop */
-.theme-toggle-nav { display: flex; }
+/* Toggle en navbar — solo visible en desktop, se oculta al abrir hamburguesa */
+.theme-toggle-nav { display: flex; transition: opacity .25s ease, visibility .25s; }
 @media (max-width: 1023px) {
   .theme-toggle-nav { display: none; }
+}
+.menu-overlay.active ~ * .theme-toggle-nav,
+body.menu-open .theme-toggle-nav {
+  opacity: 0; visibility: hidden; pointer-events: none;
 }
 
 .menu-overlay-nav a:hover {
