@@ -1098,10 +1098,10 @@ body.menu-open { overflow: hidden; }
 
 /* Toggle en navbar — SOLO desktop */
 .theme-toggle-nav {
-  display: none;
+  display: none !important;
 }
 @media (min-width: 1024px) {
-  .theme-toggle-nav { display: flex; }
+  .theme-toggle-nav { display: flex !important; }
 }
 
 /* Toggle dentro del overlay — SOLO mobile/tablet */
