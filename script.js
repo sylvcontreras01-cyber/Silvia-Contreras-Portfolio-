@@ -4,22 +4,25 @@
 
 /* ── Theme toggle ───────────────────────────────────────────── */
 (function () {
-  const btn  = document.getElementById('themeToggle');
+  const btns = [
+    document.getElementById('themeToggleNav'),
+    document.getElementById('themeToggle')
+  ].filter(Boolean);
   const body = document.body;
   const LIGHT = 'light-mode';
 
   function apply(isLight) {
     body.classList.toggle(LIGHT, isLight);
-    if (btn) btn.textContent = isLight ? '🌙' : '☀️';
+    btns.forEach(b => b.textContent = isLight ? '🌙' : '☀️');
   }
 
   apply(localStorage.getItem('theme') === 'light');
 
-  if (btn) btn.addEventListener('click', () => {
+  btns.forEach(btn => btn.addEventListener('click', () => {
     const isLight = !body.classList.contains(LIGHT);
     apply(isLight);
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  });
+  }));
 })();
 
 /* ── Navbar scroll ──────────────────────────────────────────── */
